@@ -1,0 +1,57 @@
+using System.Net;
+using System.IO;
+
+namespace API
+{
+  public class Uranai
+  {
+    protected string _token;
+    protected string _api_url;
+  
+    public searhRest()
+    {
+      this._api_url = "http://api.gnavi.co.jp/RestSearchAPI/20150630/";
+      string NaviKey = "19776c96b1d2ca9b210b82132ee8ab89"; // Chua biet cach xu ly cai key nay nhu the nao
+      
+      
+      // this.Auth();
+    }
+    /*public GourmetNaviAPI() 
+        {
+			_accessKey = NaviKey;
+		}
+	*/
+    private bool Auth()
+    {
+      // Auth Statements
+      this._token = "";// Result token.
+      return true;
+    }
+    public getRestaurant(string food_name)
+    {
+      try
+      {
+        WebClient client = new WebClient();
+        string content = client.DownloadString(this._api_url + food_name);
+        System.Console.Write(content);
+      }
+      catch (WebException)
+      {
+        return;
+      }
+      // return result
+    }
+    public string getToken()
+    {
+      return this._token;
+    }
+    static void Main(string[] args)
+    {
+        getRestaurant getRes = new getRestaurant();
+        getRes.getRestaurant("ramen");
+      
+      
+     
+    }
+  }
+}
