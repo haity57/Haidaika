@@ -1,0 +1,36 @@
+namespace Sample3{
+    using System;
+    public interface ISpecialTask
+    {
+        void task();
+        
+    }
+    public class Class2:ISpecialTask
+    {
+        public void task()
+        {
+            Console.WriteLine("task() in Class2");
+        }
+    }
+    public class Class3:ISpecialTask
+    {
+        public void task()
+        {
+            Console.WriteLine("task() in Class3");
+        }
+    }
+    public class Answer{
+    public static void callTaskt(ISpecialTask ist)
+    {
+        ist.task();
+        
+    }
+    public static void Main(){
+        Class2 c2 = new Class2();
+        Class3 c3 = new Class3();
+        callTaskt(c2);
+        callTaskt(c3);
+       
+    }
+}
+}
